@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>hexo 加入 mermaid（基于butterfly主题） | 嗷，Mr.威</title><meta name="author" content="嗷，Mr.威"><meta name="copyright" content="嗷，Mr.威"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Hexo中插入mermaid diagrams(基于butterfly主题)Excerpt 以下是使用中的hexo插入mermaid diagrams的方法。 感谢做插件的人！感谢Hexo中插入mermaid diagrams | Yu’s Notes (wangxiaoyu-go.github.io)文章作者 github参考linkMermaid diagrams介绍gitbook Merma"><meta property="og:type" content="article"><meta property="og:title" content="hexo 加入 mermaid（基于butterfly主题）"><meta property="og:url" content="https://weixiansheng1.github.io/2023/10/02/hexo%20%E5%8A%A0%E5%85%A5mermaid/index.html"><meta property="og:site_name" content="嗷，Mr.威"><meta property="og:description" content="Hexo中插入mermaid diagrams(基于butterfly主题)Excerpt 以下是使用中的hexo插入mermaid diagrams的方法。 感谢做插件的人！感谢Hexo中插入mermaid diagrams | Yu’s Notes (wangxiaoyu-go.github.io)文章作者 github参考linkMermaid diagrams介绍gitbook Merma"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://th.bing.com/th?id=OSK.HERO_5pA1UD5woifCs5BQrRR_mZULDvDIyqmHBXIp9eZbS4&w=472&h=280&c=1&rs=2&o=6&dpr=2.3&pid=SANGAM"><meta property="article:published_time" content="2023-10-02T06:17:08.474Z"><meta property="article:modified_time" content="2023-09-09T09:11:00.000Z"><meta property="article:author" content="嗷，Mr.威"><meta property="article:tag" content="hexo"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://th.bing.com/th?id=OSK.HERO_5pA1UD5woifCs5BQrRR_mZULDvDIyqmHBXIp9eZbS4&w=472&h=280&c=1&rs=2&o=6&dpr=2.3&pid=SANGAM"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://weixiansheng1.github.io/2023/10/02/hexo%20%E5%8A%A0%E5%85%A5mermaid/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload='this.media="all"'><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload='this.media="all"'><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":5,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE={title:"hexo 加入 mermaid（基于butterfly主题）",isPost:!0,isHome:!1,isHighlightShrink:!1,isToc:!0,postUpdate:"2023-09-09 17:11:00"}</script><noscript><style type="text/css">#nav{opacity:1}.justified-gallery img{opacity:1}#post-meta time,#recent-posts time{display:inline!important}</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload='this.media="all"'><style>#article-container.post-content h1:before,h2:before,h3:before,h4:before,h5:before,h6:before{-webkit-animation:avatar_turn_around 1s linear infinite;-moz-animation:avatar_turn_around 1s linear infinite;-o-animation:avatar_turn_around 1s linear infinite;-ms-animation:avatar_turn_around 1s linear infinite;animation:avatar_turn_around 1s linear infinite}</style><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="嗷，Mr.威" type="application/atom+xml"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/2f517e76-.jpg" onerror='onerror=null,src="/img/friend_404.gif"' alt="avatar"></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image:url(https://th.bing.com/th?id=OSK.HERO_5pA1UD5woifCs5BQrRR_mZULDvDIyqmHBXIp9eZbS4&amp;w=472&amp;h=280&amp;c=1&amp;rs=2&amp;o=6&amp;dpr=2.3&amp;pid=SANGAM)"><nav id="nav"><span id="blog-info"><a href="/" title="嗷，Mr.威"><span class="site-name">嗷，Mr.威</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">hexo 加入 mermaid（基于butterfly主题）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-02T06:17:08.474Z" title="发表于 2023-10-02 14:17:08">2023-10-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-09T09:11:00.000Z" title="更新于 2023-09-09 17:11:00">2023-09-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/hexo/">hexo</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">778</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="hexo 加入 mermaid（基于butterfly主题）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2023/10/02/hexo%20%E5%8A%A0%E5%85%A5mermaid/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2023/10/02/hexo%20%E5%8A%A0%E5%85%A5mermaid/" itemprop="commentCount"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Hexo中插入mermaid-diagrams-基于butterfly主题"><a href="#Hexo中插入mermaid-diagrams-基于butterfly主题" class="headerlink" title="Hexo中插入mermaid diagrams(基于butterfly主题)"></a>Hexo中插入mermaid diagrams(基于butterfly主题)</h1><h2 id="Excerpt"><a href="#Excerpt" class="headerlink" title="Excerpt"></a>Excerpt</h2><p>以下是使用中的hexo插入mermaid diagrams的方法。<br>感谢做插件的人！感谢<a href="https://wangxiaoyu-go.github.io/2018/11/23/hexo-filter-mermaid-diagrams/">Hexo中插入mermaid diagrams | Yu’s Notes (wangxiaoyu-go.github.io)</a>文章作者<br><a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">github参考link</a><br>Mermaid diagrams介绍gitbook <a href="http://mermaid.js.org/#/">Mermaid | Diagramming and charting tool</a></p><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-filter-mermaid-diagrams</span><br></pre></td></tr></table></figure><p>npm install hexo-filter-mermaid-diagrams 修改配置文件在hexo的_config.yml文件（根目录的并非主题的）中，添加以下内容：</p><h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>在hexo的<code>_config.yml</code>文件（根目录的并非主题的）中，添加以下内容：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># mermaid chart  </span><br><span class="line">mermaid: ## mermaid url https://github.com/knsv/mermaid  </span><br><span class="line">  enable: true  # default true  </span><br><span class="line">  version: &quot;7.1.2&quot; # default v7.1.2  </span><br><span class="line">  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js  </span><br><span class="line">    #startOnload: true  // default true</span><br></pre></td></tr></table></figure><h3 id="js文件修改"><a href="#js文件修改" class="headerlink" title="js文件修改"></a>js文件修改</h3><ol><li>修改位置 （butterfly主题为例）  <br>    <code>themes\butterfly\layout\includes\footer.pug</code></li><li>根据footer的格式不同，添加的内容不同。  <br>    格式有<code>after_footer.pug</code> , <code>after-footer.ejs</code> ,<code>footer.swig</code>等。  <br>    以下是在includes的<code>footer.pug</code>添加的内容。其他格式参考<a href="https://github.com/webappdevelp/hexo-filter-mermaid-diagrams">github: hexo-filter-mermaid-diagrams</a></li></ol><p>   </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if theme.mermaid.enable == true</span><br><span class="line">  script(type=&#x27;text/javascript&#x27;, id=&#x27;maid-script&#x27; mermaidoptioins=theme.mermaid.options src=&#x27;https://unpkg.com/mermaid@&#x27;+ theme.mermaid.version + &#x27;/dist/mermaid.min.js&#x27; + &#x27;?v=&#x27; + theme.version)</span><br><span class="line">  script.</span><br><span class="line">    if (window.mermaid) &#123;</span><br><span class="line">      var options = JSON.parse(document.getElementById(&#x27;maid-script&#x27;).getAttribute(&#x27;mermaidoptioins&#x27;));</span><br><span class="line">      mermaid.initialize(options);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>到此为止，设置的部分就结束了。</p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>语法要稍微注意一下。<br>有一些markdown的编辑工具，比如 Cmd Markdown，mermaid的语法是这样的：  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Alice-&gt;John: Hello John, how are you?  </span><br><span class="line">loop every minute  </span><br><span class="line">    John--&gt;Alice: Great!  </span><br><span class="line">end  </span><br></pre></td></tr></table></figure><p>注意，这款插件语法略有不同：</p><ul><li>三个点后面要写的是mermaid，而不是sequence,graph TD等mermaid diagram具体类型。</li><li>在内容的第一行写sequence,graph TD等mermaid diagram具体类型。</li></ul><pre class="mermaid">pie
+    title Key elements in Product X
+    "Calcium" : 42.96
+    "Potassium" : 50.05
+    "Magnesium" : 10.01
+    "Iron" :  5</pre><h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>至此已经完成了mermaid设定，在环境中也可以正常使用了。  <br>此时效果截图：  <br><img src="https://wangxiaoyu-go.github.io/2018/11/23/hexo-filter-mermaid-diagrams/mermaidbackground.PNG"><br>不需要更换背景颜色的话，执行<code>hexo g</code>,<code>hexo d</code>就完成了。<br>可以看出效果背景是灰色的。  <br>像我一样想换一个背景颜色的话，继续下一小节。</p><h3 id="个性化背景颜色"><a href="#个性化背景颜色" class="headerlink" title="个性化背景颜色"></a>个性化背景颜色</h3><p>个人希望没有背景颜色，是透明的。  <br>hexo有供用户设置的css文件。需要在这里添加需要的css内容。</p><ul><li>文件位置（butterfly主题为例）  <br>    <code>themes\butterfly\source\css\_custom\custom.css</code></li><li>添加内容</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*mermaid*/</span><br><span class="line">.mermaid &#123;</span><br><span class="line">  background: transparent!important;</span><br><span class="line">  opacity: 0.9;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><h3 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h3><p>甘特图_gantt diagram_</p><pre class="mermaid">gantt
+    section Section
+    Completed :done,    des1, 2014-01-06,2014-01-08
+    Active        :active,  des2, 2014-01-07, 3d
+    Parallel 1   :         des3, after des1, 1d
+    Parallel 2   :         des4, after des1, 1d
+    Parallel 3   :         des5, after des3, 1d
+    Parallel 4   :         des6, after des4, 1d</pre><div class="mermaid-wrap"><pre class="mermaid-src" hidden>
+  
+  </pre></div><p>更换css时，部署前有时需要先clean一下（不知道是不是bug）。  <br>所以执行<code>hexo clean</code>，<code>hexo g</code>，<code>hexo d</code>完成部署。</p><h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>每个markdown页面的最后一个mermaid图的后面需要加上<code>&#123;% mermaid %&#125;`,`&#123;% endmermaid %&#125;</code>才可以让mermaid图在butterfly主题上完美显示。markdown只显示<code>&#123;% endmermaid %&#125;</code>前的mermaid图。<br>例：<br><img src="https://raw.githubusercontent.com/weixiansheng1/picture/master/Snipaste_2023-09-09_17-16-04.png"><br>2.❗️❗️❗️Notice: if you want to use ‘Class diagram’, please edit your ‘_config.yml’ file, set external_link: false. - hexo bug.<br>一定要在hexo的配置文件中将external_link改为false，这是hexo的一个小bug</p></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://weixiansheng1.github.io">嗷，Mr.威</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://weixiansheng1.github.io/2023/10/02/hexo%20%E5%8A%A0%E5%85%A5mermaid/">https://weixiansheng1.github.io/2023/10/02/hexo%20%E5%8A%A0%E5%85%A5mermaid/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://weixiansheng1.github.io" target="_blank">嗷，Mr.威</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/">hexo</a></div><div class="post_share"><div class="social-share" data-image="https://th.bing.com/th?id=OSK.HERO_5pA1UD5woifCs5BQrRR_mZULDvDIyqmHBXIp9eZbS4&amp;w=472&amp;h=280&amp;c=1&amp;rs=2&amp;o=6&amp;dpr=2.3&amp;pid=SANGAM" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload='this.media="all"'><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信（wechat）"></a><div class="post-qr-code-desc">微信（wechat）</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝（alipay）"></a><div class="post-qr-code-desc">支付宝（alipay）</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/02/hello-world%20/" title="Hello World2"><img class="cover" src="https://pic4.zhimg.com/v2-337ffc158c015de82c001e08b8e44ac3_r.jpg" onerror='onerror=null,src="/img/404.jpg"' alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hello World2</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/02/hexo%20%E8%81%94%E5%8A%A8%E9%83%A8%E7%BD%B2github%20page%20-%20%E5%89%AF%E6%9C%AC/" title="hexo 联动部署github page"><img class="cover" src="https://pic4.zhimg.com/v2-66979fba86f65e3900e76a4ec928319b_r.jpg" onerror='onerror=null,src="/img/404.jpg"' alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hexo 联动部署github page</div></div></a></div></nav><hr><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/2f517e76-.jpg" onerror='this.onerror=null,this.src="/img/friend_404.gif"' alt="avatar"></div><div class="author-info__name">嗷，Mr.威</div><div class="author-info__description">一念犯鬼神，言行需谨慎。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" href="https://github.com/weixiansheng1"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/weixiansheng1" target="_blank" title="Github"><i class="fab fa-github" style="color:#24292e"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo%E4%B8%AD%E6%8F%92%E5%85%A5mermaid-diagrams-%E5%9F%BA%E4%BA%8Ebutterfly%E4%B8%BB%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">Hexo中插入mermaid diagrams(基于butterfly主题)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Excerpt"><span class="toc-number">1.1.</span> <span class="toc-text">Excerpt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.2.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9"><span class="toc-number">1.1.3.</span> <span class="toc-text">js文件修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.4.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">1.1.5.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E6%80%A7%E5%8C%96%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2"><span class="toc-number">1.1.6.</span> <span class="toc-text">个性化背景颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-1"><span class="toc-number">1.1.7.</span> <span class="toc-text">效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A"><span class="toc-number">1.1.8.</span> <span class="toc-text">注意：</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/02/Tiktok%E9%80%BB%E8%BE%91/" title="Tiktok逻辑"><img src="https://wallpaperm.cmcm.com/9655cfa8c58487380493c671b8daa038.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Tiktok逻辑"></a><div class="content"><a class="title" href="/2023/10/02/Tiktok%E9%80%BB%E8%BE%91/" title="Tiktok逻辑">Tiktok逻辑</a><time datetime="2023-10-02T06:17:08.474Z" title="发表于 2023-10-02 14:17:08">2023-10-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/02/hello-world%20/" title="Hello World2"><img src="https://pic4.zhimg.com/v2-337ffc158c015de82c001e08b8e44ac3_r.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="Hello World2"></a><div class="content"><a class="title" href="/2023/10/02/hello-world%20/" title="Hello World2">Hello World2</a><time datetime="2023-10-02T06:17:08.474Z" title="发表于 2023-10-02 14:17:08">2023-10-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/02/hexo%20%E5%8A%A0%E5%85%A5mermaid/" title="hexo 加入 mermaid（基于butterfly主题）"><img src="https://th.bing.com/th?id=OSK.HERO_5pA1UD5woifCs5BQrRR_mZULDvDIyqmHBXIp9eZbS4&amp;w=472&amp;h=280&amp;c=1&amp;rs=2&amp;o=6&amp;dpr=2.3&amp;pid=SANGAM" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="hexo 加入 mermaid（基于butterfly主题）"></a><div class="content"><a class="title" href="/2023/10/02/hexo%20%E5%8A%A0%E5%85%A5mermaid/" title="hexo 加入 mermaid（基于butterfly主题）">hexo 加入 mermaid（基于butterfly主题）</a><time datetime="2023-10-02T06:17:08.474Z" title="发表于 2023-10-02 14:17:08">2023-10-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/02/hexo%20%E8%81%94%E5%8A%A8%E9%83%A8%E7%BD%B2github%20page%20-%20%E5%89%AF%E6%9C%AC/" title="hexo 联动部署github page"><img src="https://pic4.zhimg.com/v2-66979fba86f65e3900e76a4ec928319b_r.jpg" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="hexo 联动部署github page"></a><div class="content"><a class="title" href="/2023/10/02/hexo%20%E8%81%94%E5%8A%A8%E9%83%A8%E7%BD%B2github%20page%20-%20%E5%89%AF%E6%9C%AC/" title="hexo 联动部署github page">hexo 联动部署github page</a><time datetime="2023-10-02T06:17:08.474Z" title="发表于 2023-10-02 14:17:08">2023-10-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/02/obsidian%20%E4%B8%8E%20hexo%20%E8%81%94%E5%8A%A8%E9%83%A8%E7%BD%B2github%20page/" title="obsidian 与 hexo 联动部署github page"><img src="https://pic2.zhimg.com/80/v2-597a23f8427f41a41dfd2f5b8474d09d_1440w.webp" onerror='this.onerror=null,this.src="/img/404.jpg"' alt="obsidian 与 hexo 联动部署github page"></a><div class="content"><a class="title" href="/2023/10/02/obsidian%20%E4%B8%8E%20hexo%20%E8%81%94%E5%8A%A8%E9%83%A8%E7%BD%B2github%20page/" title="obsidian 与 hexo 联动部署github page">obsidian 与 hexo 联动部署github page</a><time datetime="2023-10-02T06:17:08.474Z" title="发表于 2023-10-02 14:17:08">2023-10-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 <i id="heartbeat" class="fa fas fa-heartbeat"></i> 嗷，Mr.威</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><script type="text/javascript" id="maid-script" src="https://unpkg.com/mermaid@undefined/dist/mermaid.min.js?v=undefined"></script><script>var options;window.mermaid&&(options=JSON.parse(document.getElementById("maid-script").getAttribute("mermaidoptioins")),mermaid.initialize(options))</script></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script src="/js/sakura.js"></script><script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script><script type="text/javascript" src="\js\snow.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful=!0,POWERMODE.shake=!1,POWERMODE.mobile=!0,document.body.addEventListener("input",POWERMODE)</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span> 数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div><hr><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script data-pjax>function butterfly_categories_card_injector_config(){var a=document.getElementById("recent-posts");console.log("已挂载butterfly_categories_card"),a.insertAdjacentHTML("afterbegin",'<style>li.categoryBar-list-item{width:24%;}.categoryBar-list{max-height: 380px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 320px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover1.webp);"> <a class="categoryBar-list-link" href="categories/跨境电商/">跨境电商</a><span class="categoryBar-list-count">5</span><span class="categoryBar-list-descr">万里青天开笑口</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover2.webp);"> <a class="categoryBar-list-link" href="categories/学习笔记/">学习笔记</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">持换取信任，信任就是品牌</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover3.webp);"> <a class="categoryBar-list-link" href="categories/hexo/">hexo</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">书到今生读已迟坚</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover4.webp);"> <a class="categoryBar-list-link" href="categories/网站搭建/">网站搭建</a><span class="categoryBar-list-count">2</span><span class="categoryBar-list-descr">岩中宴坐已多事，况起多余问什么</span></li><li class="categoryBar-list-item" style="background:url(https://npm.elemecdn.com/akilar-candyassets/image/cover5.webp);"> <a class="categoryBar-list-link" href="categories/开源ai模型/">开源ai模型</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">天天开心</span></li></ul></div></div>')}document.getElementById("recent-posts")&&"/"===location.pathname&&butterfly_categories_card_injector_config()</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/koharu.model.json"},display:{position:"left",width:150,height:300},mobile:{show:!0},log:!1})</script></body></html>
